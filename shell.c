@@ -17,7 +17,7 @@ int main(void)
         int input_count = 0;
         int valid_exec = 0;
 
-        print_prompt("$ ", 2);
+        _print_prompt("$ ", 2);
         read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
         while (read_bytes != -1)
         {
@@ -26,7 +26,7 @@ int main(void)
                 else if (*user_input != '\n')
                 {
                         parse_input(user_input, argv);
-                        valid_exec = exist(argv[0]);
+                        valid_exec = _check_exec(argv[0]);
                         if (valid_exec == 0)
                         {
                                 ch_pid = fork();
@@ -46,7 +46,7 @@ int main(void)
                 }
         user_input = NULL;
         input_count++;
-        print_prompt("$ ", 2);
+        _print_prompt("$ ", 2);
         read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
         }
         _putchar('\n');
