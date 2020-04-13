@@ -18,7 +18,7 @@ int main(void)
         int valid_exec = 0;
 
         print_prompt("$ ", 2);
-        read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, STDIN);
+        read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
         while (read_bytes != -1)
         {
                 if (*user_input == '\n')
@@ -35,23 +35,22 @@ int main(void)
                                 else if (ch_pid == 0)
                                 {
                                         execve(argv[0], argv, environ);
-                                        exit(exit_status);
+                                        exit(1);
                                 }
                                 else 
                                         wait(&status);
                         }
                         else if  (valid_exec != 0)
-                                print_error(input_count, not found);
+                                print_error(input_count, not_found);
                 free(*argv);
                 }
         user_input = NULL;
         input_count++;
         print_prompt("$ ", 2);
-        read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, STDIN);
+        read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
         }
         _putchar('\n');
         free(user_input);
         return (0);
-        }
 }
  
