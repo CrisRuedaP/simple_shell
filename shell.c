@@ -8,10 +8,10 @@
 
 int main(void)
 {
-        ssize_t read_bytes = 0; /**número de caracteres leidos y el salto de línea*/
-        size_t MAX_BUFFER_SIZE;
-        char *user_input = NULL;
-        pid_t ch_pid = 0;
+	ssize_t read_bytes = 0; /**número de caracteres leídos y el salto de línea*/
+	size_t MAX_BUFFER_SIZE;
+	char *user_input = NULL;
+	pid_t ch_pid = 0;
         char *argv[20];
         int status = 0;
         int input_count = 0;
@@ -37,7 +37,7 @@ int main(void)
                                         execve(argv[0], argv, environ);
                                         exit(1);
                                 }
-                                else 
+                                else
                                         wait(&status);
                         }
                         else if  (valid_exec != 0)
@@ -53,4 +53,3 @@ int main(void)
         free(user_input);
         return (0);
 }
- 
