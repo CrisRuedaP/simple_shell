@@ -3,24 +3,24 @@
 /**
 * _parse_input - parses input from the user and stores in an array
 * @user_input: input from user
-* @argv: array with arguments to execute
+* @arg: array with arguments to execute
 * Return: arguments count
 */
 
-int _parse_input(char *user_input, char **argv)
+int _parse_input(char *user_input, char **arg)
 {
 	int ac = 0;
 	char *parameter;
 	char *temp = user_input;
 
-	user_input = strtok(user_input, "\n\t\r");
-	argv[ac] = user_input; /*El comando, el primer argumento del input*/
+	user_input = strtok(user_input, " \n\t\r");
+	arg[ac] = user_input; /*first argument: which the is the command*/
 	for (ac = 1; temp != NULL; ac++)
 	{
-		parameter  = strtok(NULL, "\n\t\r");
+		parameter  = strtok(NULL, " \n\t\r");
 		temp = parameter;
-		argv[ac] = parameter;
+		arg[ac] = parameter;
 	}
-	argv[ac] = NULL;
+	arg[ac] = NULL;
 	return (ac);
 }
