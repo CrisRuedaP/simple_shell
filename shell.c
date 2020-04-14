@@ -2,52 +2,51 @@
 
 /**
  * main - entry point
- * 
  * Return: 0 for success
  */
 
 int main(void)
 {
-	ssize_t read_bytes = 0; /**número de caracteres leídos y el salto de línea*/
-	size_t MAX_BUFFER_SIZE;
+	ssize_t read_bytes = 0;
+	size_t buffer_size = 0;
 	char *user_input = NULL;
 	pid_t ch_pid = 0;
-        char *argv[20];
+        char *arg[20];
         int status = 0;
         int input_count = 0;
         int valid_exec = 0;
-
+        
         _print_prompt("($) ", 4);
-        read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
+        read_bytes = getline(&user_input, &buffer_size, stdin);
         while (read_bytes != -1)
         {
                 if (*user_input == '\n')
                         free(user_input);
                 else if (*user_input != '\n')
                 {
-                        parse_input(user_input, argv);
-                        valid_exec = _check_exec(argv[0]);
+                        _parse_input(user_input, arg);
+                        valid_exec = _check_exec(arg[0]);
                         if (valid_exec == 0)
                         {
                                 ch_pid = fork();
                                 if (ch_pid == -1)
-                                        print_error();
+                                        printf("failed");
                                 else if (ch_pid == 0)
                                 {
-                                        execve(argv[0], argv, environ);
-                                        exit(1);
+                                        execve(arg[0], arg, environ);
+                                        exit(0);
                                 }
                                 else
                                         wait(&status);
                         }
                         else if  (valid_exec != 0)
-                                _print_wrong_input(cmd, input_count);
-                free(*argv);
+                                _print_wrong_input(user_input, input_count);
+                free(*arg);
                 }
         user_input = NULL;
         input_count++;
         _print_prompt("($) ", 4);
-        read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
+        read_bytes = getline(&user_input, &buffer_size, stdin);
         }
         _putchar('\n');
         free(user_input);

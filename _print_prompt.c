@@ -1,14 +1,14 @@
 #include "header.h"
 
 /**
-* print_prompt - prints shell prompt for user
+* _print_prompt - prints shell prompt for user
 * @prompt: string to be printed
 * @size: length of the prompt
 *
 * Return: 0 on success, -1 if not
 */
 
-ssize_t print_prompt(const char *prompt, size_t size)
+ssize_t _print_prompt(const char *prompt, size_t size)
 {
 	int written_bytes = 0;
 	
@@ -44,17 +44,17 @@ void _print_count(int input_count)
 }
 
 /**
- * _prompt_wrong_input - prints prompt after input of wrong command 
+ * _print_wrong_input - prints prompt after input of wrong command 
  * @cmd: command input by the user
  * @input_count: number of times the user has input a command
  * Return: nothing 
  */
 
-void _prompt_wrong_input(char *cmd, int input_count)
+void _print_wrong_input(char *cmd, int input_count)
 {
 	char *prompt = "($) ";
 	
-	write(2, cmd, 4);
+	write(2, prompt, 4);
 	write(2, ": ", 2);
 	_print_count(input_count);
 	write(2, ": ", 2);
