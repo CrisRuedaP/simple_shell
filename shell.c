@@ -17,7 +17,7 @@ int main(void)
         int input_count = 0;
         int valid_exec = 0;
 
-        _print_prompt("$ ", 2);
+        _print_prompt("($) ", 4);
         read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
         while (read_bytes != -1)
         {
@@ -41,12 +41,12 @@ int main(void)
                                         wait(&status);
                         }
                         else if  (valid_exec != 0)
-                                print_error(input_count, not_found);
+                                _print_wrong_input(cmd, input_count);
                 free(*argv);
                 }
         user_input = NULL;
         input_count++;
-        _print_prompt("$ ", 2);
+        _print_prompt("($) ", 4);
         read_bytes = getline(&user_input, &MAX_BUFFER_SIZE, stdin);
         }
         _putchar('\n');
