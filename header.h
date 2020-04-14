@@ -19,4 +19,5 @@ ssize_t print_prompt(const char *prompt, size_t size);
 int _putchar(char c);
 void _print_count(int input_count);
 void _prompt_wrong_input(char *cmd, int input_count);
+int _strlen(const char *s);
 #endif
