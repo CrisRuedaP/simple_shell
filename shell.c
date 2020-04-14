@@ -5,12 +5,13 @@
  */
 int main(void)
 {
-	ssize_t read_bytes = 0, size_t buffer_size = 0;
+	ssize_t read_bytes = 0;
+	size_t buffer_size = 0;
 	char *user_input = NULL, *arg[20];
 	pid_t ch_pid = 0;
 	int status = 0, input_count = 0, valid_exec = 0;
 
-	_print_prompt("($) ", 4);
+	_print_prompt("$ ", 2);
 	read_bytes = getline(&user_input, &buffer_size, stdin);
 	while (read_bytes != -1)
 	{
@@ -33,13 +34,13 @@ int main(void)
 				else
 					wait(&status);
 			}
-			else if  (valid_exec != 0)
+			else if (valid_exec != 0)
 				_print_wrong_input(user_input, input_count);
 			free(*arg);
 		}
 		user_input = NULL;
 		input_count++;
-		_print_prompt("($) ", 4);
+		_print_prompt("$ ", 2);
 		read_bytes = getline(&user_input, &buffer_size, stdin);
 	}
 	_putchar('\n');
