@@ -52,12 +52,12 @@ void _print_count(int input_count)
 
 void _print_wrong_input(char *cmd, int input_count)
 {
-	char *prompt = "($) ";
+	char *prompt = "$hsh";
 
 	write(2, prompt, 4);
 	write(2, ": ", 2);
 	_print_count(input_count);
 	write(2, ": ", 2);
 	write(2, cmd, _strlen(cmd));
-	write(2, ": not found\n", 12);
+	write(2, ": command not found\n", 20);
 }

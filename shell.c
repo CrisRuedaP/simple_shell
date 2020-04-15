@@ -25,11 +25,15 @@ int main(void)
 			{
 				ch_pid = fork();
 				if (ch_pid == -1)
-					printf("failed");
+				{
+					perror("fork");
+					exit(EXIT_FAILURE);
+				}
 				else if (ch_pid == 0)
 				{
 					execve(arg[0], arg, environ);
-					exit(0);
+					/*if (execve == -1)
+						return (1);*/
 				}
 				else
 					wait(&status);
