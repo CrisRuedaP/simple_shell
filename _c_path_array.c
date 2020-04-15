@@ -1,10 +1,15 @@
 #include "header.h"
 
-int main(void)
+/**
+ * _c_path_array - creates array with paths to executable file
+* 
+* Return: 0 on success
+*/
+
+int _c_path_array(void)
 {
 	char *path_env = NULL, *directory = NULL;
 	const char *delim = ":";
-	int i = 0;
 
 	path_env = _getenv("PATH");
 	directory = strtok(path_env, delim);

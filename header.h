@@ -11,7 +11,6 @@
 #include <string.h>
 
 extern char **environ;
-int main(void);
 ssize_t _print_prompt(const char *prompt, size_t size);
 int _parse_input(char *user_input, char **argv);
 int _check_exec(const char *command);

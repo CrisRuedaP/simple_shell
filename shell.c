@@ -9,7 +9,7 @@ int main(void)
 	size_t buffer_size = 0;
 	char *user_input = NULL, *arg[20];
 	pid_t ch_pid = 0;
-	int status = 0, input_count = 0, exe_stat = 0, valid_command = 0;
+	int status = 0, input_count = 1, exe_stat = 0, valid_command = 0;
 
 	_print_prompt("$ ", 2);
 	read_bytes = getline(&user_input, &buffer_size, stdin);
