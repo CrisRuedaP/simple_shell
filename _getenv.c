@@ -1,21 +1,28 @@
 #include "header.h"
 
-char *_getenv(const char *fullpath)
+/**
+ * _getenv - gets an array with the different paths  
+ * @path: it's a copy of PATH
+ * Return: array 
+ */
+
+char *_getenv(char *path)
 {
 	int i = 0;
 	const char s[] = "=";
 	char *token;
+	char **envcp;
 	/* store environ in a different variable before strtok*/
 
-	if (fullpath != NULL)
+	envcp = environ;
+	if (path != NULL)
 	{
-		while (environ[i] != NULL)
+		while (envcp[i] != NULL)
 		{
-			token = strtok(environ[i], s);
-			if (strcmp(token, fullpath) == 0)
+			token = strtok(envcp[i], s);
+			if (_strcmp(token, path) == 0)
 			{
 				token = strtok(NULL, s);
-				return (token);
 			}
 			i++;
 		}

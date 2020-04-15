@@ -1,7 +1,7 @@
 #include "header.h"
 
 /**
- * _c_path_array - creates array with paths to executable file
+* _c_path_array - creates array with paths to executable file
 * 
 * Return: 0 on success
 */
@@ -16,7 +16,6 @@ int _c_path_array(void)
 
 	while (directory)
 	{
-		printf("%s\n", directory);
 		directory = strtok(NULL, delim);
 	}
 	return (0);
