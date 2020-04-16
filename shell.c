@@ -21,9 +21,7 @@ int main(void)
 			_parse_input(user_input, arg);
 			valid_command = _check_exec(arg[0]);
 			if (valid_command == 0)
-			{
 				_fork(arg);
-			}
 			else if (valid_command != 0)
 			{
 				_print_wrong_input(user_input, input_count);

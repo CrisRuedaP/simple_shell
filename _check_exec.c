@@ -2,28 +2,26 @@
 
 /**
 * _check_exec - checks existence of command
-* @command: name of executable file without the path
+* @command: name of executable file, args[0] gotten from _parse_input
 *
 * Return: 0 on success or -1 on error
 */
 
-int _check_exec(const char *command)
+int _check_exec(char *command)
 {
-	int valid_command = access(command, F_OK);
-	char **dir_ptr;
-	int i = 0; 
-
+	char **dir_ptr = NULL;
+	int i = 0, valid_command;
 	
-	if (*command != '//')
 	{
 		while (dir_ptr)
 		{
-			command = _strcat(dir_ptr[i], command);
+			command = _str_concat(dir_ptr[i], command);
 			i++;
 		}	
 	}	
+	valid_command = access(command, F_OK);
 	if (valid_command != 1)
 		return (valid_command);
 	else
-		return (valid_command);	
+		return (valid_command);
 }

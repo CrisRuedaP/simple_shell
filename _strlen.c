@@ -7,7 +7,7 @@
  * Return: 0 on success
  */
 
-int _strlen(const char *s)
+int _strlen(char *s)
 {
 	int len = 0;
 
