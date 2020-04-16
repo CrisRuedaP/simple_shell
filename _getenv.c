@@ -12,8 +12,7 @@ char *_getenv(char *path)
 	const char s[] = "=";
 	char *token;
 	char **envcp;
-	/* store environ in a different variable before strtok*/
-
+	
 	envcp = environ;
 	if (path != NULL)
 	{

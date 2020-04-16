@@ -22,4 +22,6 @@ char *_getenv(char *path);
 int _strcmp(const char *s1, const char *s2);
 int _c_path_array(void);
 int _fork(char **arg);
+char *_strcat(char *dest, char *src);
+
 #endif
