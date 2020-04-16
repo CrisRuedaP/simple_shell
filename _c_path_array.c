@@ -2,7 +2,7 @@
 
 /**
 * _c_path_array - creates array with paths to executable file
-* 
+*
 * Return: 0 on success
 */
 

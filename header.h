@@ -18,5 +18,8 @@ int _putchar(char c);
 void _print_count(int input_count);
 void _print_wrong_input(char *cmd, int input_count);
 int _strlen(const char *s);
-char *_getenv(const char *name);
+char *_getenv(char *path);
+int _strcmp(const char *s1, const char *s2);
+int _c_path_array(void);
+int _fork(char **arg);
 #endif

@@ -1,0 +1,24 @@
+#include "header.h"
+
+int _fork(char **arg)
+{
+	pid_t child_p = 0;
+	int status = 0;
+	int exe_stat = 0;
+
+	child_p = fork();
+	if (child_p == -1)
+	{
+		perror("failed fork");
+		exit(EXIT_FAILURE);
+	}
+	else if (child_p == 0)
+	{
+		exe_stat = execve(arg[0], arg, environ);
+		if (exe_stat == -1)
+			return (1);
+	}
+	else
+		wait(&status);
+	return (0);
+}

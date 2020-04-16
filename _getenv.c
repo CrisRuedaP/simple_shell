@@ -1,9 +1,9 @@
 #include "header.h"
 
 /**
- * _getenv - gets an array with the different paths  
+ * _getenv - gets an array with the different paths
  * @path: it's a copy of PATH
- * Return: array 
+ * Return: array
  */
 
 char *_getenv(char *path)
