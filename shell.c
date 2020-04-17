@@ -25,7 +25,6 @@ int main(void)
 			else if (valid_command != 0)
 			{
 				_print_wrong_input(user_input, input_count);
-				_putchar('\n');
 			}
 			free(*arg);
 		}
@@ -34,7 +33,7 @@ int main(void)
 		_print_prompt("$ ", 2);
 		read_bytes = getline(&user_input, &buffer_size, stdin);
 	}
-	_putchar('\n');
+	/*_putchar('\n');*/
 	free(user_input);
 	return (0);
 }

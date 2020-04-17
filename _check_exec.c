@@ -10,15 +10,8 @@
 int _check_exec(char *command)
 {
 	char **dir_ptr = NULL;
-	int i = 0, valid_command;
-	
-	{
-		while (dir_ptr)
-		{
-			command = _str_concat(dir_ptr[i], command);
-			i++;
-		}	
-	}	
+	int valid_command;
+
 	valid_command = access(command, F_OK);
 	if (valid_command != 1)
 		return (valid_command);
