@@ -1,5 +1,12 @@
 #include "header.h"
 
+/**
+ * _fork - starts executes and terminates child process
+ * @arg: array of arguments to execute
+ * 
+ * Return: 0 for success or 1 if execution fails
+ */
+
 int _fork(char **arg)
 {
 	pid_t child_p = 0;
