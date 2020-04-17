@@ -1,10 +1,12 @@
 # Simple Shell
 
-Simple shell is a command-line interpreter written in C language and runs in Ubuntu 14.04.3 LTS. It was compiled with GCC.
+Simple shell is a command-line interpreter written in C language and runs in/
+Ubuntu 14.04.3 LTS. It was compiled with GCC.
 
 ## Installation
 
-To install it, clone this repository from this URL: https://github.com/CrisRuedaP/simple_shell  and compile using this:
+To install it, clone this repository from this/
+URL: https://github.com/CrisRuedaP/simple_shell  and compile using this:
 
 
 
@@ -40,13 +42,12 @@ echo "/bin/ls" | [full_path]/hsh
 #### output:
 
 ```python
-readme.md main.c header.c 
+readme.md main.c header.c
 
 ```
 
 ## Library Functions and Syscalls Used
 
- 
 getline()
 
 strtok()
