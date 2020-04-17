@@ -3,7 +3,7 @@
 /**
  * _fork - starts executes and terminates child process
  * @arg: array of arguments to execute
- * 
+ *
  * Return: 0 for success or 1 if execution fails
  */
 
