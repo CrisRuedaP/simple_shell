@@ -16,7 +16,7 @@ int _parse_input(char *user_input, char **argv);
 int _check_exec(char *command);
 int _putchar(char c);
 void _print_count(int input_count);
-void _print_wrong_input(char *cmd, int input_count);
+int _print_wrong_input(char *cmd, int input_count);
 int _strlen(char *s);
 char *_getenv(char *path);
 int _strcmp(const char *s1, const char *s2);

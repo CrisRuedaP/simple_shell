@@ -10,7 +10,8 @@ int main(void)
 	char *user_input = NULL, *arg[20];
 	int input_count = 1, valid_command = 0;
 
-	_print_prompt("$ ", 2);
+	if (isatty(STDIN_FILENO))
+		_print_prompt("$ ", 2);
 	read_bytes = getline(&user_input, &buffer_size, stdin);
 	while (read_bytes != -1)
 	{
@@ -30,7 +31,8 @@ int main(void)
 		}
 		user_input = NULL;
 		input_count++;
-		_print_prompt("$ ", 2);
+		if (isatty(STDIN_FILENO))
+			_print_prompt("$ ", 2);
 		read_bytes = getline(&user_input, &buffer_size, stdin);
 	}
 	/*_putchar('\n');*/

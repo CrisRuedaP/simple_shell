@@ -50,7 +50,7 @@ void _print_count(int input_count)
  * Return: nothing
  */
 
-void _print_wrong_input(char *cmd, int input_count)
+int _print_wrong_input(char *cmd, int input_count)
 {
 	char *prompt = "./hsh";
 
@@ -59,5 +59,6 @@ void _print_wrong_input(char *cmd, int input_count)
 	_print_count(input_count);
 	write(2, ": ", 2);
 	write(2, cmd, _strlen(cmd));
-	write(2, ": not found", 11);
+	write(2, ": not found\n", 12);
+	return (127);
 }

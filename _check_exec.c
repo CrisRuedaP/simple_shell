@@ -9,7 +9,6 @@
 
 int _check_exec(char *command)
 {
-	char **dir_ptr = NULL;
 	int valid_command;
 
 	valid_command = access(command, F_OK);
