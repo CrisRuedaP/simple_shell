@@ -23,5 +23,5 @@ int _strcmp(const char *s1, const char *s2);
 int _c_path_array(void);
 int _fork(char **arg);
 char *_str_concat(char *s1, char *s2);
-
+void ctr_c(int s);
 #endif

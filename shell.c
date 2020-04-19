@@ -1,5 +1,18 @@
 #include "header.h"
 /**
+ * ctr_c - stop shell from quitting with control +c
+ * @signal: signal 
+ * Return: nothing.
+ */
+void ctr_c(int signal)
+{
+	signal = signal;
+	write(1, "\n", 1);
+	write(1, "$ ", 2);
+	fflush(stdout);
+}
+
+/**
  * main - entry point
  * Return: 0 for success
  */
@@ -12,6 +25,7 @@ int main(void)
 
 	if (isatty(STDIN_FILENO))
 		_print_prompt("$ ", 2);
+		signal(SIGINT, ctr_c);
 	read_bytes = getline(&user_input, &buffer_size, stdin);
 	while (read_bytes != -1)
 	{
@@ -33,9 +47,12 @@ int main(void)
 		input_count++;
 		if (isatty(STDIN_FILENO))
 			_print_prompt("$ ", 2);
+			signal(SIGINT, ctr_c);
 		read_bytes = getline(&user_input, &buffer_size, stdin);
 	}
 	/*_putchar('\n');*/
 	free(user_input);
 	return (0);
 }
+
+#define UNUSED(expr) (void)(expr
