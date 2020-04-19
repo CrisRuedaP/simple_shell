@@ -3,39 +3,24 @@
 /**
 * _parse_input - parses input from the user and stores in an array
 * @user_input: input from user
+* @arg: array with arguments to execute
 * Return: arguments count
 */
 
-char  **_parse_input(char *user_input)
+char  _parse_input(char *user_input, char **arg)
 {
-	int ac = 0, token_number = 0;
-	char *parameter, *temp = NULL, **arg = NULL, *token = NULL;
-	char *token1;
-
-	if (user_input)
+	int ac = 0;
+	char *parameter;
+	char *temp = user_input;
+	
+	user_input = strtok(user_input, " \n\t\r");
+	arg[ac] = user_input;
+	for (ac = 1; temp != NULL; ac++)
 	{
-		temp = _strdup(user_input);
-		parameter = _strdup(temp);
-		token = strtok(temp, DELIMIT);
-		while (token != NULL)
-		{
-			token_number++;
-			token = strtok(NULL, " \n\t\r");
-		}
-		arg = malloc(sizeof(char *) * (token_number + 1));
-		token = strtok(parameter, DELIMIT);
-		while (token != NULL)
-		{
-			arg[ac] = _strdup(token);
-			token1 = arg[ac];
-			if (*token1 != *WHITE_SP)
-				ac++;
-			token = strtok(NULL, DELIMIT);
-		}
-		arg[ac] = '\0';
-		free(temp);
-		free(parameter);
-		return (arg);
+		parameter = strtok(NULL, " \n\t\r");
+		temp = parameter;
+		arg[ac] = parameter;
 	}
-	return (NULL);
+	arg[ac] == NULL;
+	return (ac);
 }

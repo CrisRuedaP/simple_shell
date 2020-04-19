@@ -14,7 +14,7 @@
 
 extern char **environ;
 ssize_t _print_prompt(const char *prompt, size_t size);
-char **_parse_input(char *user_input);
+char _parse_input(char *user_input, char **arg);
 int _check_exec(char *command);
 int _putchar(char c);
 void _print_count(int input_count);
