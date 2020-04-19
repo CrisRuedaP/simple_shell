@@ -14,7 +14,7 @@ int _parse_input(char *user_input, char **arg)
 	char *temp = user_input;
 
 	user_input = strtok(user_input, " \n\t\r");
-	arg[ac] = user_input; /*first argument: which the is the command*/
+	arg[ac] = user_input;
 	for (ac = 1; temp != NULL; ac++)
 	{
 		parameter  = strtok(NULL, " \n\t\r");
