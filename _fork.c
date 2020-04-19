@@ -23,7 +23,7 @@ int _fork(char **arg)
 	{
 		exe_stat = execve(arg[0], arg, environ);
 		if (exe_stat == -1)
-			perror("Error");
+			return (1);
 	}
 	else
 		wait(&status);

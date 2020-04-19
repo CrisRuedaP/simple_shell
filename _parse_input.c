@@ -7,12 +7,12 @@
 * Return: arguments count
 */
 
-char  _parse_input(char *user_input, char **arg)
+int _parse_input(char *user_input, char **arg)
 {
 	int ac = 0;
 	char *parameter;
 	char *temp = user_input;
-	
+
 	user_input = strtok(user_input, " \n\t\r");
 	arg[ac] = user_input;
 	for (ac = 1; temp != NULL; ac++)
@@ -21,6 +21,6 @@ char  _parse_input(char *user_input, char **arg)
 		temp = parameter;
 		arg[ac] = parameter;
 	}
-	arg[ac] == NULL;
+	arg[ac] = NULL;
 	return (ac);
 }

@@ -17,10 +17,10 @@ char *_str_concat(char *s1, char *s2)
 	if (s3 == NULL)
 		return (NULL);
 
-	for (; s1[i] ; i++)
+	for (; s1[i]; i++)
 		s3[i] = s1[i];
 
-	for (; s2[j] ; j++, i++)
+	for (; s2[j]; j++, i++)
 		s3[i] = s2[j];
 
 	s3[i] = '\0';
