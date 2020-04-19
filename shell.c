@@ -1,7 +1,7 @@
 #include "header.h"
 /**
  * ctr_c - stop shell from quitting with control +c
- * @signal: signal 
+ * @signal: signal
  * Return: nothing.
  */
 void ctr_c(int signal)
@@ -54,5 +54,3 @@ int main(void)
 	free(user_input);
 	return (0);
 }
-
-#define UNUSED(expr) (void)(expr
