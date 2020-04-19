@@ -7,8 +7,9 @@ int main(void)
 {
 	ssize_t read_bytes = 0;
 	size_t buffer_size = 0;
-	char *user_input = NULL, *arg[20];
+	char *user_input = NULL, **arg = NULL;
 	int input_count = 1, valid_command = 0;
+	const char *white_sp = " ";
 
 	if (isatty(STDIN_FILENO))
 		_print_prompt("$ ", 2);
@@ -17,17 +18,22 @@ int main(void)
 	{
 		if (*user_input == '\n')
 			free(user_input);
-		else if (*user_input != '\n')
-		{
-			_parse_input(user_input, arg);
+		else if (user_input != NULL)
+		{	
+			arg = _parse_input(user_input);
+			if (**arg == *white_sp)
+			{
+				_free_d_ptr(arg);
+				_putchar(2);
+				exit(0);
+			}
+
 			valid_command = _check_exec(arg[0]);
 			if (valid_command == 0)
 				_fork(arg);
 			else if (valid_command != 0)
-			{
 				_print_wrong_input(user_input, input_count);
-			}
-			free(*arg);
+			_free_d_ptr(arg);
 		}
 		user_input = NULL;
 		input_count++;
